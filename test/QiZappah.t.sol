@@ -29,6 +29,7 @@ contract ContractTest is Test, ERC20TokenFaker, IERC721Receiver {
 
         fakeOutERC20(address(weth))._setBalance(address(this), 10e18);
         assertEq(weth.balanceOf(address(this)), 10e18);
+        console.log("%s:%s", "Starting collateral", weth.balanceOf(address(this)));
 
         vault.approve(address(qiZappah), vaultId);
         weth.approve(address(qiZappah), 10e18);
