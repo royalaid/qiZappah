@@ -46,6 +46,7 @@ abstract contract ERC20TokenFaker
 
     function movedAddress(address orig)
         private
+        pure
         returns (address moved)
     {
         moved = address(uint160(address(orig)) + 1);

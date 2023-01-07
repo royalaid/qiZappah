@@ -44,7 +44,7 @@ contract ContractTest is Test, ERC20TokenFaker, IERC721Receiver {
         console.log("%s:%s", "wsteth", wsteth.balanceOf(address(this)));
     }
 
-    function onERC721Received(address operator, address from, uint256 tokenId, bytes memory data) public pure returns (bytes4) {
+    function onERC721Received(address, address, uint256, bytes memory) public pure returns (bytes4) {
         return this.onERC721Received.selector;
     }
 }

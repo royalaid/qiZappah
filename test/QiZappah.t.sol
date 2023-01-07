@@ -16,12 +16,12 @@ contract ContractTest is Test, ERC20TokenFaker, IERC721Receiver {
     function setUp() public {
         weth = ERC20(0x4200000000000000000000000000000000000006);
         qiZappah = new QiZappah();
-        vault = ICrossChainStablecoin(0xD13Ed4879DCF81C181DA82C46F4D0689b0734F23);
+        vault = ICrossChainStablecoin(0x929596C08815cF9d97e3c8280017Dc74bE81C12c);
     }
 
     function testZapInZapOut() public {
-       address YVWETH = 0xA628c54C850ff1077b5C954491D19EccE7e321fF;
-       address PERF = 0x5A6325c3E3c88Dbcd52a8d55a31b342d09fa7982;
+       address YVWETH = 0x5B977577Eb8a480f63e11FC615D6753adB8652Ae;
+       address PERF = 0x881Dace37C6fa4a5364Bf4806D0e9F8DAD8098e8;
        
         qiZappah.addChainToWhiteList(address(weth), YVWETH, PERF, address(vault));
         uint vaultId = vault.createVault();
@@ -45,7 +45,7 @@ contract ContractTest is Test, ERC20TokenFaker, IERC721Receiver {
         console.log("%s:%s", "weth", weth.balanceOf(address(this)));
     }
 
-    function onERC721Received(address operator, address from, uint256 tokenId, bytes memory data) public pure returns (bytes4) {
+    function onERC721Received(address, address, uint256, bytes memory) public pure returns (bytes4) {
         return this.onERC721Received.selector;
     }
 }
